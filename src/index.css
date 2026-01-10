@@ -21,15 +21,15 @@
   src: url("/src/assets/fonts/Ubuntu-Bold.ttf") format("truetype");
 }
 @theme {
-  --color-marine-blue: hsl(213, 96%, 18%);
-  --color-purplish-blue: hsl(243, 100%, 62%);
-  --color-pastel-blue: hsl(228, 100%, 84%);
-  --color-light-blue: hsl(206, 94%, 87%);
-  --color-strawberry-red: hsl(354, 84%, 57%);
-  --color-cool-gray: hsl(231, 11%, 63%);
-  --color-light-gray: hsl(229, 24%, 87%);
-  --color-magnolia: hsl(217, 100%, 97%);
-  --color-alabaster: hsl(231, 100%, 99%);
+  --color-marine-blue: oklch(29.057% 0.09465 256.147);
+  --color-purplish-blue: oklch(51.898% 0.2704 273.841);
+  --color-pastel-blue: oklch(81.206% 0.09413 272.848);
+  --color-light-blue: oklch(89.63% 0.05249 241.442);
+  --color-strawberry-red: oklch(62.144% 0.21761 21.371);
+  --color-cool-gray: oklch(59.744% 0.03383 277.196);
+  --color-light-gray: oklch(88.686% 0.01817 275.599);
+  --color-magnolia: oklch(97.122% 0.01375 258.454);
+  --color-alabaster: oklch(98.846% 0.00552 274.896);
 
   --font-family-base: "Ubuntu", sans-serif;
 }
