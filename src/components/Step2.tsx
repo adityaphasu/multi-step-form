@@ -7,6 +7,7 @@ const icons = [ArcadeIcon, AdvancedIcon, ProIcon];
 
 export const Step2 = () => {
   const [isYearly, setIsYearly] = useState(false);
+  const [plan, setPlan] = useState<"Arcade" | "Advanced" | "Pro">("Arcade");
 
   return (
     <div className="px-6 py-7.5 flex flex-col gap-[1.38rem]">
@@ -17,9 +18,30 @@ export const Step2 = () => {
         </p>
       </div>
       <div className="flex flex-col gap-3">
-        <RadioOption label="Arcade" price={9} icon={icons[0]} yearly={isYearly} />
-        <RadioOption label="Advanced" price={12} icon={icons[1]} yearly={isYearly} />
-        <RadioOption label="Pro" price={15} icon={icons[2]} yearly={isYearly} />
+        <RadioOption
+          label="Arcade"
+          price={9}
+          icon={icons[0]}
+          yearly={isYearly}
+          selected={plan === "Arcade"}
+          onSelect={() => setPlan("Arcade")}
+        />
+        <RadioOption
+          label="Advanced"
+          price={12}
+          icon={icons[1]}
+          yearly={isYearly}
+          selected={plan === "Advanced"}
+          onSelect={() => setPlan("Advanced")}
+        />
+        <RadioOption
+          label="Pro"
+          price={15}
+          icon={icons[2]}
+          yearly={isYearly}
+          selected={plan === "Pro"}
+          onSelect={() => setPlan("Pro")}
+        />
       </div>
       <div className="bg-magnolia flex justify-center p-[0.85rem] font-medium rounded-lg text-[15px]  gap-5.75 items-center tracking-tight mt-0.5">
         <span className={!isYearly ? "text-marine-blue" : "text-cool-gray"}>Monthly</span>
@@ -42,27 +64,35 @@ const RadioOption = ({
   price,
   icon,
   yearly,
+  selected,
+  onSelect,
 }: {
   label: string;
   price: number;
   icon: string;
   yearly: boolean;
+  selected: boolean;
+  onSelect: () => void;
 }) => {
   return (
-    <div>
-      <label className="w-full relative cursor-pointer has-checked:border-marine-blue flex px-4 py-3.5 pb-3.75 border rounded-lg border-light-gray has-checked:bg-magnolia transition-all">
-        <img src={icon} alt="" />
-        <span className="ml-3.5 flex flex-col font-medium text-marine-blue">
-          {label}{" "}
-          <span className="text-[15px] text-cool-gray font-normal tracking-tighter">
-            ${price}/mo
-          </span>
-          {yearly && (
-            <span className="text-[13px] text-marine-blue font-normal mt-1">2 months free</span>
-          )}
+    <label className="w-full relative cursor-pointer has-checked:border-marine-blue flex px-4 py-3.5 pb-3.75 border rounded-lg border-light-gray has-checked:bg-magnolia transition-all items-start">
+      <img src={icon} alt="" className="" />
+      <span className="ml-3.5 flex flex-col font-medium text-marine-blue">
+        {label}{" "}
+        <span className="text-[15px] text-cool-gray font-normal tracking-tighter">
+          ${yearly ? price * 10 : price}/{yearly ? "yr" : "mo"}
         </span>
-        <input type="radio" name="plan" className="absolute opacity-0" />
-      </label>
-    </div>
+        {yearly && (
+          <span className="text-[13px] text-marine-blue font-normal mt-[2.5px]">2 months free</span>
+        )}
+      </span>
+      <input
+        type="radio"
+        name="plan"
+        className="absolute opacity-0"
+        checked={selected}
+        onChange={onSelect}
+      />
+    </label>
   );
 };

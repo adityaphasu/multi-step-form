@@ -14,7 +14,7 @@ export const Form = ({
   };
 
   return (
-    <form className="pt-1.5 flex-1 flex flex-col justify-between h-full -mt-20">
+    <form className="pt-1.5 flex flex-1 flex-col justify-between h-full -mt-20 gap-6">
       {step === 1 && (
         <div className="bg-white rounded-xl shadow-xl mx-4">
           {" "}
@@ -26,6 +26,7 @@ export const Form = ({
           <Step2 />
         </div>
       )}
+
       <div
         className={`bg-white flex px-4 pb-3 pt-4 text-[15px] ${
           step > 1 ? "justify-between" : "justify-end"
