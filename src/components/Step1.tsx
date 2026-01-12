@@ -1,4 +1,12 @@
-export const Step1 = () => {
+import type { FormData } from "../types/types";
+
+export const Step1 = ({
+  formData,
+  setFormData,
+}: {
+  formData: FormData;
+  setFormData: React.Dispatch<React.SetStateAction<FormData>>;
+}) => {
   return (
     <div className="px-6 py-7.5 flex flex-col gap-4">
       <div>
@@ -15,6 +23,8 @@ export const Step1 = () => {
           <input
             type="text"
             id="name"
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             className="w-full px-3.75 py-1.75 border border-cool-gray rounded focus:outline-marine-blue caret-marine-blue placeholder:font-medium placeholder:text-cool-gray placeholder:text-[15px]"
             placeholder="e.g. Stephen King"
           />
@@ -26,6 +36,8 @@ export const Step1 = () => {
           <input
             type="email"
             id="email"
+            value={formData.email}
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             className="w-full px-3.75 py-1.75 border border-cool-gray rounded focus:outline-marine-blue caret-marine-blue placeholder:font-medium placeholder:text-cool-gray placeholder:text-[15px]"
             placeholder="e.g. stephenking@lorem.com"
           />
@@ -37,6 +49,8 @@ export const Step1 = () => {
           <input
             type="tel"
             id="phone"
+            value={formData.phone}
+            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
             className="w-full px-3.75 py-1.75 border border-cool-gray rounded focus:outline-marine-blue caret-marine-blue placeholder:font-medium placeholder:text-cool-gray placeholder:text-[15px]"
             placeholder="e.g. +1 234 567 890"
           />
