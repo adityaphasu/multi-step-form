@@ -62,7 +62,7 @@ const CheckOption = ({
   const addon = ADDONS.find((a) => a.id === id);
   if (!addon) return null;
   return (
-    <label className="flex relative items-center gap-3.75 border-[1.5px] border-light-gray rounded-lg px-[14.5px] py-2.25 cursor-pointer hover:border-marine-blue has-checked:border-marine-blue has-checked:bg-magnolia transition-all">
+    <label className="group flex relative items-center gap-3.75 border-[1.5px] border-light-gray rounded-lg px-[14.5px] py-2.25 cursor-pointer hover:border-marine-blue has-checked:border-marine-blue has-checked:bg-magnolia transition-all">
       <input
         name={addon.label}
         checked={checked}
@@ -71,8 +71,8 @@ const CheckOption = ({
         className="opacity-0 absolute w-0 h-0 peer"
       />
       <span
-        className="relative size-5 border-[1.5px] border-light-gray rounded-sm flex items-center justify-center after:absolute after:hidden after:left-1.5 after:top-[0.15rem] after:w-1.5 after:h-2.5 after:border-white after:border-2 after:border-t-0 after:border-l-0 after:rotate-45 after:peer-checked:border-purplish-blue peer-checked:bg-purplish-blue
-      peer-checked:border-purplish-blue peer-checked:after:block transition-all"
+        className="relative size-5 border-[1.5px] border-light-gray rounded-sm flex items-center justify-center after:absolute  after:left-1.5 after:top-[0.15rem] after:w-1.5 after:h-2.5 after:border-white after:border-2 after:border-t-0 after:border-l-0 after:rotate-45 after:peer-checked:border-purplish-blue peer-checked:bg-purplish-blue
+      peer-checked:border-purplish-blue transition-all group-hover:bg-magnolia group-hover:border-marine-blue group-hover:after:border-marine-blue peer-checked:group-hover:after:border-white"
       />
       <span className="flex flex-1 flex-col tracking-tight">
         <span className="font-medium text-marine-blue text-[15px]">{addon.label}</span>

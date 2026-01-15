@@ -79,7 +79,7 @@ const RadioOption = ({
   onSelect: () => void;
 }) => {
   return (
-    <label className="w-full relative cursor-pointer has-checked:border-marine-blue flex px-4 py-3.5 pb-3.75 border-[1.5px] rounded-lg border-light-gray has-checked:bg-magnolia transition-all items-start">
+    <label className="w-full relative cursor-pointer has-checked:border-marine-blue flex px-4 py-3.5 pb-3.75 border-[1.5px] rounded-lg border-light-gray has-checked:bg-magnolia transition-all items-start hover:border-marine-blue">
       <img src={icon} alt="" className="" />
       <span className="ml-3.5 flex flex-col font-medium text-marine-blue">
         {label}{" "}

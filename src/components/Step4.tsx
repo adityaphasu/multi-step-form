@@ -33,14 +33,17 @@ export const Step4 = ({
           Double-check everything looks OK before confirming.
         </p>
       </div>
-      <div className="bg-alabaster rounded-lg p-4 text-sm">
+      <div className="bg-magnolia/80 rounded-lg p-4 text-sm">
         <div className="flex justify-between items-center mb-[0.77rem] border-b border-light-gray pb-2.75">
           <div className="flex flex-col items-start">
             <h3 className=" font-medium">
               {formData.plan?.type}
               <span className="ml-0.5">({formData.isYearly ? "Yearly" : "Monthly"})</span>
             </h3>
-            <button type="button" onClick={() => setStep(2)} className="text-cool-gray underline">
+            <button
+              type="button"
+              onClick={() => setStep(2)}
+              className="text-cool-gray underline hover:text-purplish-blue transition-all cursor-pointer">
               Change
             </button>
           </div>

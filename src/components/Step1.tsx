@@ -25,7 +25,7 @@ export const Step1 = ({
             id="name"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full px-3.75 py-1.75 border border-cool-gray rounded focus:outline-marine-blue caret-marine-blue placeholder:font-medium placeholder:text-cool-gray placeholder:text-[15px]"
+            className="w-full px-3.75 py-1.75 border border-cool-gray rounded focus:outline-marine-blue caret-marine-blue placeholder:font-medium placeholder:text-cool-gray placeholder:text-[15px] transition-all"
             placeholder="e.g. Stephen King"
           />
         </div>
@@ -38,7 +38,7 @@ export const Step1 = ({
             id="email"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="w-full px-3.75 py-1.75 border border-cool-gray rounded focus:outline-marine-blue caret-marine-blue placeholder:font-medium placeholder:text-cool-gray placeholder:text-[15px]"
+            className="w-full px-3.75 py-1.75 border border-cool-gray rounded focus:outline-marine-blue caret-marine-blue placeholder:font-medium placeholder:text-cool-gray placeholder:text-[15px] transition-all"
             placeholder="e.g. stephenking@lorem.com"
           />
         </div>
@@ -51,7 +51,7 @@ export const Step1 = ({
             id="phone"
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            className="w-full px-3.75 py-1.75 border border-cool-gray rounded focus:outline-marine-blue caret-marine-blue placeholder:font-medium placeholder:text-cool-gray placeholder:text-[15px]"
+            className="w-full px-3.75 py-1.75 border border-cool-gray rounded focus:outline-marine-blue caret-marine-blue placeholder:font-medium placeholder:text-cool-gray placeholder:text-[15px] transition-all"
             placeholder="e.g. +1 234 567 890"
           />
         </div>

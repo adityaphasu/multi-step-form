@@ -52,14 +52,16 @@ export const Form = ({
           <button
             type="button"
             onClick={() => setStep((s) => Math.max(s - 1, 1))}
-            className="cursor-pointer text-cool-gray">
+            className="cursor-pointer text-cool-gray transition-all hover:text-marine-blue font-medium">
             Go Back
           </button>
         )}
         <button
           type="submit"
-          className={`text-white py-2.25 rounded  cursor-pointer ${
-            step === 4 ? "px-5.25 bg-purplish-blue" : "bg-marine-blue px-3.75"
+          className={`text-white py-2.25 rounded  cursor-pointer transition-colors ${
+            step === 4
+              ? "px-5.25 bg-purplish-blue hover:bg-purplish-blue/80"
+              : "bg-marine-blue px-3.75 hover:bg-marine-blue/80"
           }`}>
           {step === 4 ? "Confirm" : "Next Step"}
         </button>
