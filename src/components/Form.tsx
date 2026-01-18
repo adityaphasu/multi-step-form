@@ -30,8 +30,25 @@ export const Form = ({
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const validateStep1 = () => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.name?.trim()) newErrors.name = "Name is required.";
+    if (!formData.email?.trim()) newErrors.email = "Email is required.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
+      newErrors.email = "Invalid email format.";
+    if (!formData.phone?.trim()) newErrors.phone = "Phone number is required.";
+    else if (!/^\+?\d{10,15}$/.test(formData.phone.replace(/[\s\-\(\)]/g, "")))
+      newErrors.phone = "Invalid phone number.";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleNext = (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (step === 1 && !validateStep1()) return;
 
     if (step === 4) {
       setLoading(true);
@@ -39,7 +56,6 @@ export const Form = ({
         setLoading(false);
         setIsConfirmed(true);
       }, 3000);
-
       return;
     }
 
@@ -47,7 +63,7 @@ export const Form = ({
   };
 
   const steps = [
-    <Step1 formData={formData} setFormData={setFormData} />,
+    <Step1 formData={formData} setFormData={setFormData} errors={errors} />,
     <Step2 formData={formData} setFormData={setFormData} />,
     <Step3 formData={formData} setFormData={setFormData} />,
     <Step4 formData={formData} setStep={setStep} />,
