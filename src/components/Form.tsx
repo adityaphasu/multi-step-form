@@ -72,13 +72,13 @@ export const Form = ({
   return (
     <form
       onSubmit={handleNext}
-      className="pt-1.5 flex flex-1 flex-col justify-between h-full -mt-20 gap-10">
-      <div className="bg-white rounded-xl shadow-xl mx-4">
+      className="pt-1.5 flex flex-1 flex-col justify-between h-full -mt-20 gap-10 lg:mt-0 lg:pr-15 lg:justify-normal 2xl:gap-11.75 lg:mb-1.25">
+      <div className="bg-white rounded-xl shadow-xl mx-4 lg:bg-transparent lg:shadow-none lg:mx-0">
         {isConfirmed ? <Confirm /> : steps[step - 1]}
       </div>
       {!isConfirmed && (
         <div
-          className={`bg-white flex px-4 pb-3 pt-4 text-[15px] ${
+          className={`bg-white flex px-4 pb-3 pt-4 text-[15px] lg:px-6 lg:text-base ${
             step > 1 ? "justify-between" : "justify-end"
           }`}>
           {step > 1 && (
@@ -91,10 +91,10 @@ export const Form = ({
           )}
           <button
             type="submit"
-            className={`text-white py-2.25 rounded  cursor-pointer transition-colors ${
+            className={`text-white py-2.25 lg:py-3 rounded  cursor-pointer transition-colors lg:rounded-lg ${
               step === 4
                 ? "px-5.25 bg-purplish-blue hover:bg-purplish-blue/80"
-                : "bg-marine-blue px-3.75 hover:bg-marine-blue/80"
+                : "bg-marine-blue px-3.75 hover:bg-marine-blue/80 lg:px-[1.6rem]"
             }`}>
             {step === 4 ? (
               loading ? (

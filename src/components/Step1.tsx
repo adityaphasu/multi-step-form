@@ -10,39 +10,39 @@ export const Step1 = ({
   errors: Record<string, string>;
 }) => {
   return (
-    <div className="px-6 py-7.5 flex flex-col gap-4">
+    <div className="px-6 py-7.5 flex flex-col gap-4 2xl:gap-8.5">
       <div>
-        <h2 className="font-bold text-marine-blue text-2xl">Personal info</h2>
-        <p className="text-cool-gray mt-2 leading-6.25">
+        <h2 className="font-bold text-marine-blue text-2xl lg:text-[2rem]">Personal info</h2>
+        <p className="text-cool-gray mt-2 leading-6.25 lg:mt-1.75">
           Please provide your name, email address, and phone number.
         </p>
       </div>
-      <div className="flex flex-col gap-2.25">
-        <div>
+      <div className="flex flex-col gap-2.25 lg:gap-5">
+        <div className="lg:space-y-2">
           <div className="flex justify-between items-center">
-            <label htmlFor="name" className="text-marine-blue text-xs">
+            <label htmlFor="name" className="text-marine-blue text-xs lg:text-sm">
               Name
             </label>
-            {errors.name && <p className="text-strawberry-red font-bold text-xs">{errors.name}</p>}
+            {errors.name && (
+              <p className="text-strawberry-red font-bold text-xs lg:text-sm">{errors.name}</p>
+            )}
           </div>
           <input
             type="text"
             id="name"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className={`w-full px-3.75 py-1.75 border rounded focus:outline-marine-blue caret-marine-blue placeholder:font-medium placeholder:text-cool-gray placeholder:text-[15px] transition-all ${
-              errors.name ? "border-strawberry-red" : "border-cool-gray"
-            }`}
+            className={`step-1-input ${errors.name ? "border-strawberry-red" : "border-cool-gray"}`}
             placeholder="e.g. Stephen King"
           />
         </div>
-        <div>
+        <div className="lg:space-y-2">
           <div className="flex justify-between items-center">
-            <label htmlFor="email" className="text-marine-blue text-xs">
+            <label htmlFor="email" className="text-marine-blue text-xs lg:text-sm">
               Email Address
             </label>
             {errors.email && (
-              <p className="text-strawberry-red font-bold text-xs">{errors.email}</p>
+              <p className="text-strawberry-red font-bold text-xs lg:text-sm">{errors.email}</p>
             )}
           </div>
           <input
@@ -50,19 +50,19 @@ export const Step1 = ({
             id="email"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className={`w-full px-3.75 py-1.75 border rounded focus:outline-marine-blue caret-marine-blue placeholder:font-medium placeholder:text-cool-gray placeholder:text-[15px] transition-all ${
+            className={`step-1-input ${
               errors.email ? "border-strawberry-red" : "border-cool-gray"
             }`}
             placeholder="e.g. stephenking@lorem.com"
           />
         </div>
-        <div>
+        <div className="lg:space-y-2">
           <div className="flex justify-between items-center">
-            <label htmlFor="phone" className="text-marine-blue text-xs">
+            <label htmlFor="phone" className="text-marine-blue text-xs lg:text-sm">
               Phone Number
             </label>
             {errors.phone && (
-              <p className="text-strawberry-red font-bold text-xs">{errors.phone}</p>
+              <p className="text-strawberry-red font-bold text-xs lg:text-sm">{errors.phone}</p>
             )}
           </div>
           <input
@@ -70,7 +70,7 @@ export const Step1 = ({
             id="phone"
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            className={`w-full px-3.75 py-1.75 border rounded focus:outline-marine-blue caret-marine-blue placeholder:font-medium placeholder:text-cool-gray placeholder:text-[15px] transition-all ${
+            className={`step-1-input ${
               errors.phone ? "border-strawberry-red" : "border-cool-gray"
             }`}
             placeholder="e.g. +1 234 567 890"

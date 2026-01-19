@@ -32,16 +32,33 @@
   --color-alabaster: oklch(98.846% 0.00552 274.896);
 
   --font-family-base: "Ubuntu", sans-serif;
+  --breakpoint-2xl: 1440px;
 }
 
 body {
   font-size: 1rem;
   font-family: var(--font-family-base);
   background-color: var(--color-magnolia);
+
+  @media (min-width: 1024px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
 }
 
 .background-image {
   background-image: url("/src/assets/images/bg-sidebar-mobile.svg");
   background-repeat: no-repeat;
   background-size: cover;
+
+  @media (min-width: 1024px) {
+    background-image: url("/src/assets/images/bg-sidebar-desktop.svg");
+    background-position: bottom;
+  }
+}
+
+.step-1-input {
+  @apply w-full px-3.75 py-1.75 border rounded lg:rounded-lg focus:outline-marine-blue caret-marine-blue placeholder:font-medium placeholder:text-cool-gray placeholder:text-[15px] lg:placeholder:text-base 2xl:py-2.75 transition-all;
 }
