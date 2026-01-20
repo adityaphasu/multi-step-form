@@ -26,14 +26,14 @@ export const Step3 = ({
   };
 
   return (
-    <div className="px-6 py-7.5 flex flex-col gap-5.5">
+    <div className="px-6 py-7.5 flex flex-col gap-5.5  lg:pb-4.5 lg:gap-1.25 2xl:gap-7.5">
       <div>
-        <h2 className="font-bold text-marine-blue text-2xl">Pick add-ons.</h2>
-        <p className="text-cool-gray mt-2 leading-6.25">
+        <h2 className="font-bold text-marine-blue text-2xl lg:text-[2rem]">Pick add-ons</h2>
+        <p className="text-cool-gray mt-2 leading-6.25 lg:mt-1.5">
           Add-ons help enhance your gaming experience.
         </p>
       </div>
-      <div className="space-y-2.75">
+      <div className="space-y-2.75 2xl:mt-1.25 2xl:space-y-4">
         {ADDONS.map((addon) => (
           <CheckOption
             key={addon.id}
@@ -62,7 +62,7 @@ const CheckOption = ({
   const addon = ADDONS.find((a) => a.id === id);
   if (!addon) return null;
   return (
-    <label className="group flex relative items-center gap-3.75 border-[1.5px] border-light-gray rounded-lg px-[14.5px] py-2.25 cursor-pointer hover:border-marine-blue has-checked:border-marine-blue has-checked:bg-magnolia transition-all">
+    <label className="group flex relative items-center gap-3.75 border-[1.5px] border-light-gray rounded-lg px-[14.5px] py-2.25 cursor-pointer hover:border-marine-blue has-checked:border-marine-blue has-checked:bg-magnolia transition-all lg:px-5.75 lg:pt-4.75 lg:pb-4 lg:gap-6">
       <input
         name={addon.label}
         checked={checked}
@@ -75,10 +75,12 @@ const CheckOption = ({
       peer-checked:border-purplish-blue transition-all group-hover:bg-magnolia group-hover:border-marine-blue group-hover:after:border-marine-blue peer-checked:group-hover:after:border-white"
       />
       <span className="flex flex-1 flex-col tracking-tight">
-        <span className="font-medium text-marine-blue text-[15px]">{addon.label}</span>
-        <span className="text-cool-gray text-[13px]">{addon.description}</span>
+        <span className="font-medium text-marine-blue text-[15px] lg:text-[16.25px] lg:tracking-normal">
+          {addon.label}
+        </span>
+        <span className="text-cool-gray text-[13px] lg:tracking-wide">{addon.description}</span>
       </span>
-      <span className="text-purplish-blue text-xs">
+      <span className="text-purplish-blue text-xs lg:text-sm">
         +${yearly ? addon.price * 10 : addon.price}/{yearly ? "yr" : "mo"}
       </span>
     </label>

@@ -72,7 +72,7 @@ export const Form = ({
   return (
     <form
       onSubmit={handleNext}
-      className="pt-1.5 flex flex-1 flex-col justify-between h-full -mt-20 gap-10 lg:mt-0 lg:pr-15 lg:justify-normal 2xl:gap-11.75 lg:mb-1.25">
+      className="pt-1.5 flex flex-1 flex-col justify-between h-full -mt-20 gap-7 lg:mt-0 lg:pr-15 lg:justify-normal 2xl:gap-11.75 lg:mb-1.25">
       <div className="bg-white rounded-xl shadow-xl mx-4 lg:bg-transparent lg:shadow-none lg:mx-0">
         {isConfirmed ? <Confirm /> : steps[step - 1]}
       </div>
@@ -93,7 +93,7 @@ export const Form = ({
             type="submit"
             className={`text-white py-2.25 lg:py-3 rounded  cursor-pointer transition-colors lg:rounded-lg ${
               step === 4
-                ? "px-5.25 bg-purplish-blue hover:bg-purplish-blue/80"
+                ? "px-5.25 bg-purplish-blue hover:bg-purplish-blue/80 lg:px-8"
                 : "bg-marine-blue px-3.75 hover:bg-marine-blue/80 lg:px-[1.6rem]"
             }`}>
             {step === 4 ? (

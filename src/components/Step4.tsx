@@ -26,52 +26,54 @@ export const Step4 = ({
   const total = planPrice + addonsTotal;
 
   return (
-    <div className="px-6 py-7.5 flex flex-col gap-5.5">
+    <div className="px-6 py-7.5 flex flex-col gap-5.5 lg:pb-5 xl:pb-8 2xl:pb-14 2xl:gap-9">
       <div>
-        <h2 className="font-bold text-marine-blue text-2xl">Finishing up</h2>
+        <h2 className="font-bold text-marine-blue text-2xl lg:text-[2rem]">Finishing up</h2>
         <p className="text-cool-gray mt-2 leading-6.25">
           Double-check everything looks OK before confirming.
         </p>
       </div>
-      <div className="bg-magnolia/80 rounded-lg p-4 text-sm">
-        <div className="flex justify-between items-center mb-[0.77rem] border-b border-light-gray pb-2.75">
-          <div className="flex flex-col items-start">
-            <h3 className=" font-medium">
-              {formData.plan?.type}
-              <span className="ml-0.5">({formData.isYearly ? "Yearly" : "Monthly"})</span>
-            </h3>
-            <button
-              type="button"
-              onClick={() => setStep(2)}
-              className="text-cool-gray underline hover:text-purplish-blue transition-all cursor-pointer">
-              Change
-            </button>
+      <div className="flex flex-col gap-5.5 lg:gap-6">
+        <div className="bg-magnolia/80 rounded-lg p-4 text-sm lg:px-6 lg:flex lg:flex-col lg:gap-3.75">
+          <div className="flex justify-between items-center mb-[0.77rem] border-b border-light-gray pb-2.75">
+            <div className="flex flex-col items-start">
+              <h3 className=" font-medium lg:text-base">
+                {formData.plan?.type}
+                <span className="ml-0.5">({formData.isYearly ? "Yearly" : "Monthly"})</span>
+              </h3>
+              <button
+                type="button"
+                onClick={() => setStep(2)}
+                className="text-cool-gray underline hover:text-purplish-blue transition-all cursor-pointer lg:text-shadow-amber-400">
+                Change
+              </button>
+            </div>
+            <p className="text-marine-blue font-bold mt-1 lg:text-base">
+              ${planPrice}/{isYearly}
+            </p>
           </div>
-          <p className="text-marine-blue font-medium mt-1">
-            ${planPrice}/{isYearly}
+          <div className="space-y-3 lg:py-1 lg:space-y-4">
+            {Object.keys(formData.addOns || {}).map((id) => {
+              const addon = ADDONS.find((a) => a.id === id);
+              if (!addon) return null;
+              const addonPrice = formData.isYearly ? addon.price * 10 : addon.price;
+              return (
+                <div key={id} className="flex justify-between items-center text-cool-gray">
+                  <p>{addon.label}</p>
+                  <p>
+                    +${addonPrice}/{isYearly}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <div className="px-4 flex justify-between items-center text-sm lg:px-6">
+          <p className="text-cool-gray">Total (per {formData.isYearly ? "year" : "month"})</p>
+          <p className="text-purplish-blue font-bold text-[1.05rem] tracking-tight lg:text-[1.35rem]">
+            +${total}/{isYearly}
           </p>
         </div>
-        <div className="space-y-3">
-          {Object.keys(formData.addOns || {}).map((id) => {
-            const addon = ADDONS.find((a) => a.id === id);
-            if (!addon) return null;
-            const addonPrice = formData.isYearly ? addon.price * 10 : addon.price;
-            return (
-              <div key={id} className="flex justify-between items-center text-cool-gray">
-                <p>{addon.label}</p>
-                <p>
-                  +${addonPrice}/{isYearly}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-      <div className="px-4 flex justify-between items-center text-sm">
-        <p className="text-cool-gray">Total (per {formData.isYearly ? "year" : "month"})</p>
-        <p className="text-purplish-blue font-bold text-[1.05rem] tracking-tight">
-          +${total}/{isYearly}
-        </p>
       </div>
     </div>
   );
