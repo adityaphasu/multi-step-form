@@ -40,7 +40,7 @@ body {
   font-family: var(--font-family-base);
   background-color: var(--color-magnolia);
 
-  @media (min-width: 1024px) {
+  @media (min-width: 64rem) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,7 +53,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 64rem) {
     background-image: url("/src/assets/images/bg-sidebar-desktop.svg");
     background-position: bottom;
   }
